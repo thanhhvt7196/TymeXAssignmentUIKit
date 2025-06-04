@@ -1,17 +1,15 @@
 //
-//  Constants.swift
-//  TymeXAssignmentUIKit
+//  APIConstant.swift
+//  TymeXAssignment
 //
-//  Created by thanh tien on 4/6/25.
+//  Created by thanh tien on 2/6/25.
 //
 
-import Foundation
-
-struct Constants {
+struct APIConstant {
     static let githubAPIURL = "https://api.github.com"
     
     struct APIPath {
-        static let users = "users"
+        static let users = "/users"
     }
     
     struct APIParamKey {
@@ -27,4 +25,3 @@ struct Constants {
         static let applicationJson = "application/json;charset=utf-8"
     }
 }
-
