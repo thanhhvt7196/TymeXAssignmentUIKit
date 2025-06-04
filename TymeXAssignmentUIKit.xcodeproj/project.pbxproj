@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CDC20492DF088E8007DA363 /* Pulse in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDC20482DF088E8007DA363 /* Pulse */; };
+		0CDC204B2DF088E8007DA363 /* PulseProxy in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDC204A2DF088E8007DA363 /* PulseProxy */; };
+		0CDC204D2DF088E8007DA363 /* PulseUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDC204C2DF088E8007DA363 /* PulseUI */; };
 		0CFFD3FA2DEFD27400403B0D /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFD3F92DEFD27400403B0D /* RealmSwift */; };
 		0CFFD3FD2DEFE14300403B0D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFD3FC2DEFE14300403B0D /* Kingfisher */; };
 		0CFFD4002DEFE18A00403B0D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFD3FF2DEFE18A00403B0D /* Swinject */; };
@@ -76,6 +79,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CDC204D2DF088E8007DA363 /* PulseUI in Frameworks */,
+				0CDC20492DF088E8007DA363 /* Pulse in Frameworks */,
+				0CDC204B2DF088E8007DA363 /* PulseProxy in Frameworks */,
 				0CFFD4082DEFE31300403B0D /* RxCocoa in Frameworks */,
 				0CFFD3FD2DEFE14300403B0D /* Kingfisher in Frameworks */,
 				0CFFD4112DEFE36B00403B0D /* Moya in Frameworks */,
@@ -152,6 +158,9 @@
 				0CFFD4092DEFE31300403B0D /* RxRelay */,
 				0CFFD40B2DEFE31300403B0D /* RxSwift */,
 				0CFFD4102DEFE36B00403B0D /* Moya */,
+				0CDC20482DF088E8007DA363 /* Pulse */,
+				0CDC204A2DF088E8007DA363 /* PulseProxy */,
+				0CDC204C2DF088E8007DA363 /* PulseUI */,
 			);
 			productName = TymeXAssignmentUIKit;
 			productReference = 0CFFD3A52DEFCEE700403B0D /* TymeXAssignmentUIKit.app */;
@@ -232,6 +241,7 @@
 			knownRegions = (
 				en,
 				Base,
+				vi,
 			);
 			mainGroup = 0CFFD39C2DEFCEE700403B0D;
 			minimizedProjectReferenceProxies = 1;
@@ -242,6 +252,7 @@
 				0CFFD4012DEFE1A300403B0D /* XCRemoteSwiftPackageReference "SnapKit" */,
 				0CFFD4042DEFE31300403B0D /* XCRemoteSwiftPackageReference "RxSwift" */,
 				0CFFD40F2DEFE36B00403B0D /* XCRemoteSwiftPackageReference "Moya" */,
+				0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0CFFD3A62DEFCEE700403B0D /* Products */;
@@ -378,6 +389,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -442,6 +454,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -608,6 +621,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kean/Pulse.git";
+			requirement = {
+				kind = exactVersion;
+				version = 5.1.4;
+			};
+		};
 		0CFFD3F82DEFD27400403B0D /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -659,6 +680,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0CDC20482DF088E8007DA363 /* Pulse */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */;
+			productName = Pulse;
+		};
+		0CDC204A2DF088E8007DA363 /* PulseProxy */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */;
+			productName = PulseProxy;
+		};
+		0CDC204C2DF088E8007DA363 /* PulseUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */;
+			productName = PulseUI;
+		};
 		0CFFD3F92DEFD27400403B0D /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CFFD3F82DEFD27400403B0D /* XCRemoteSwiftPackageReference "realm-swift" */;
