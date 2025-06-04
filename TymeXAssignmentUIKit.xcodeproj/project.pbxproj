@@ -636,8 +636,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 5.7.1;
+				kind = exactVersion;
+				version = 5.7.1;
 			};
 		};
 		0CFFD4042DEFE31300403B0D /* XCRemoteSwiftPackageReference "RxSwift" */ = {
