@@ -82,12 +82,7 @@ class UserListVC: Controller<UserListViewModel> {
         tableView.contentInset.bottom = view.safeAreaInsets.bottom + 10
     }
     
-    private func setupBinding() {
-        bindRefreshTrigger()
-        bindTableView()
-    }
-    
-    private func bindRefreshTrigger() {
+    private func bindInputs() {
         let refreshControlAction = refreshControl.rx.controlEvent(.valueChanged)
             .withUnretained(self)
             .do(onNext: { vc, _ in
@@ -102,13 +97,13 @@ class UserListVC: Controller<UserListViewModel> {
         Observable.merge(refreshControlAction, viewWillAppearEvent)
             .bind(to: vm.inputs.rx.refreshTrigger)
             .disposed(by: disposeBag)
-    }
-    
-    private func bindTableView() {
+        
         tableView.rx.modelSelected(GitHubUser.self)
             .bind(to: vm.inputs.rx.selectedUserAction)
             .disposed(by: disposeBag)
-        
+    }
+    
+    private func bindOutputs() {
         let userList = vm.outputs.rx.userList
             .distinctUntilChanged()
         
@@ -137,5 +132,16 @@ class UserListVC: Controller<UserListViewModel> {
                 vc.skeletonView.isHidden = !(isLoading && userList.isEmpty)
             })
             .disposed(by: disposeBag)
+        
+        vm.outputs.rx.errorMessage
+            .emit(with: self, onNext: { vc, errorMessage in
+                vc.showErrorAlert(message: errorMessage)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func setupBinding() {
+        bindInputs()
+        bindOutputs()
     }
 }
