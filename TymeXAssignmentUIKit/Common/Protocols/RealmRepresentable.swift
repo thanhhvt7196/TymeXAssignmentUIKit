@@ -11,7 +11,7 @@ import RealmSwift
 protocol RealmRepresentable {
     associatedtype RealmType: Object
     
-    func toSwiftData() -> RealmType
+    func toRealm() -> RealmType
 }
 
 protocol DomainConvertible {
