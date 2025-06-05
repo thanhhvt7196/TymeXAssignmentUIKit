@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0C9FE9092DF093A700CA4CC0 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0C9FE9082DF093A700CA4CC0 /* swiftgen.yml */; };
+		0CDAC6152DF13CDE005A125A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDAC6142DF13CDE005A125A /* RxCocoa */; };
+		0CDAC6172DF13CDE005A125A /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDAC6162DF13CDE005A125A /* RxRelay */; };
+		0CDAC6192DF13CDE005A125A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDAC6182DF13CDE005A125A /* RxSwift */; };
 		0CDC20492DF088E8007DA363 /* Pulse in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDC20482DF088E8007DA363 /* Pulse */; };
 		0CDC204B2DF088E8007DA363 /* PulseProxy in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDC204A2DF088E8007DA363 /* PulseProxy */; };
 		0CDC204D2DF088E8007DA363 /* PulseUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDC204C2DF088E8007DA363 /* PulseUI */; };
@@ -15,9 +18,6 @@
 		0CFFD3FD2DEFE14300403B0D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFD3FC2DEFE14300403B0D /* Kingfisher */; };
 		0CFFD4002DEFE18A00403B0D /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFD3FF2DEFE18A00403B0D /* Swinject */; };
 		0CFFD4032DEFE1A300403B0D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFD4022DEFE1A300403B0D /* SnapKit */; };
-		0CFFD4082DEFE31300403B0D /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFD4072DEFE31300403B0D /* RxCocoa */; };
-		0CFFD40A2DEFE31300403B0D /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFD4092DEFE31300403B0D /* RxRelay */; };
-		0CFFD40C2DEFE31300403B0D /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFD40B2DEFE31300403B0D /* RxSwift */; };
 		0CFFD4112DEFE36B00403B0D /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 0CFFD4102DEFE36B00403B0D /* Moya */; };
 /* End PBXBuildFile section */
 
@@ -81,17 +81,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CDAC6172DF13CDE005A125A /* RxRelay in Frameworks */,
+				0CDAC6152DF13CDE005A125A /* RxCocoa in Frameworks */,
 				0CDC204D2DF088E8007DA363 /* PulseUI in Frameworks */,
 				0CDC20492DF088E8007DA363 /* Pulse in Frameworks */,
 				0CDC204B2DF088E8007DA363 /* PulseProxy in Frameworks */,
-				0CFFD4082DEFE31300403B0D /* RxCocoa in Frameworks */,
 				0CFFD3FD2DEFE14300403B0D /* Kingfisher in Frameworks */,
 				0CFFD4112DEFE36B00403B0D /* Moya in Frameworks */,
-				0CFFD40A2DEFE31300403B0D /* RxRelay in Frameworks */,
 				0CFFD4032DEFE1A300403B0D /* SnapKit in Frameworks */,
 				0CFFD3FA2DEFD27400403B0D /* RealmSwift in Frameworks */,
 				0CFFD4002DEFE18A00403B0D /* Swinject in Frameworks */,
-				0CFFD40C2DEFE31300403B0D /* RxSwift in Frameworks */,
+				0CDAC6192DF13CDE005A125A /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,13 +157,13 @@
 				0CFFD3FC2DEFE14300403B0D /* Kingfisher */,
 				0CFFD3FF2DEFE18A00403B0D /* Swinject */,
 				0CFFD4022DEFE1A300403B0D /* SnapKit */,
-				0CFFD4072DEFE31300403B0D /* RxCocoa */,
-				0CFFD4092DEFE31300403B0D /* RxRelay */,
-				0CFFD40B2DEFE31300403B0D /* RxSwift */,
 				0CFFD4102DEFE36B00403B0D /* Moya */,
 				0CDC20482DF088E8007DA363 /* Pulse */,
 				0CDC204A2DF088E8007DA363 /* PulseProxy */,
 				0CDC204C2DF088E8007DA363 /* PulseUI */,
+				0CDAC6142DF13CDE005A125A /* RxCocoa */,
+				0CDAC6162DF13CDE005A125A /* RxRelay */,
+				0CDAC6182DF13CDE005A125A /* RxSwift */,
 			);
 			productName = TymeXAssignmentUIKit;
 			productReference = 0CFFD3A52DEFCEE700403B0D /* TymeXAssignmentUIKit.app */;
@@ -186,8 +186,6 @@
 				0CFFD3BE2DEFCEE900403B0D /* TymeXAssignmentUIKitTests */,
 			);
 			name = TymeXAssignmentUIKitTests;
-			packageProductDependencies = (
-			);
 			productName = TymeXAssignmentUIKitTests;
 			productReference = 0CFFD3BB2DEFCEE900403B0D /* TymeXAssignmentUIKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -209,8 +207,6 @@
 				0CFFD3C82DEFCEE900403B0D /* TymeXAssignmentUIKitUITests */,
 			);
 			name = TymeXAssignmentUIKitUITests;
-			packageProductDependencies = (
-			);
 			productName = TymeXAssignmentUIKitUITests;
 			productReference = 0CFFD3C52DEFCEE900403B0D /* TymeXAssignmentUIKitUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
@@ -253,9 +249,9 @@
 				0CFFD3FB2DEFE14300403B0D /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				0CFFD3FE2DEFE18A00403B0D /* XCRemoteSwiftPackageReference "Swinject" */,
 				0CFFD4012DEFE1A300403B0D /* XCRemoteSwiftPackageReference "SnapKit" */,
-				0CFFD4042DEFE31300403B0D /* XCRemoteSwiftPackageReference "RxSwift" */,
 				0CFFD40F2DEFE36B00403B0D /* XCRemoteSwiftPackageReference "Moya" */,
 				0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */,
+				0CDAC6132DF13CDE005A125A /* XCRemoteSwiftPackageReference "RxSwift" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0CFFD3A62DEFCEE700403B0D /* Products */;
@@ -625,6 +621,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0CDAC6132DF13CDE005A125A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.9.0;
+			};
+		};
 		0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Pulse.git";
@@ -665,14 +669,6 @@
 				version = 5.7.1;
 			};
 		};
-		0CFFD4042DEFE31300403B0D /* XCRemoteSwiftPackageReference "RxSwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
-			requirement = {
-				kind = exactVersion;
-				version = 6.9.0;
-			};
-		};
 		0CFFD40F2DEFE36B00403B0D /* XCRemoteSwiftPackageReference "Moya" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Moya/Moya.git";
@@ -684,6 +680,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0CDAC6142DF13CDE005A125A /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CDAC6132DF13CDE005A125A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		0CDAC6162DF13CDE005A125A /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CDAC6132DF13CDE005A125A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		0CDAC6182DF13CDE005A125A /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CDAC6132DF13CDE005A125A /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
 		0CDC20482DF088E8007DA363 /* Pulse */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */;
@@ -718,21 +729,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0CFFD4012DEFE1A300403B0D /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		0CFFD4072DEFE31300403B0D /* RxCocoa */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0CFFD4042DEFE31300403B0D /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxCocoa;
-		};
-		0CFFD4092DEFE31300403B0D /* RxRelay */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0CFFD4042DEFE31300403B0D /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxRelay;
-		};
-		0CFFD40B2DEFE31300403B0D /* RxSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 0CFFD4042DEFE31300403B0D /* XCRemoteSwiftPackageReference "RxSwift" */;
-			productName = RxSwift;
 		};
 		0CFFD4102DEFE36B00403B0D /* Moya */ = {
 			isa = XCSwiftPackageProductDependency;

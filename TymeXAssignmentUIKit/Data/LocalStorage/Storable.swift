@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RxSwift
 
 public protocol PrimaryKeyType {}
 
@@ -22,7 +21,6 @@ public enum StoreWriteLevel: Int {
 public protocol Storeable {
     associatedtype Model
 
-    func query(_ conditions: [NSPredicate]?, sort usingDescriptors: [NSSortDescriptor]?) -> Observable<[Model]>
     func objects(_ conditions: [NSPredicate]?, sort usingDescriptors: [NSSortDescriptor]?) -> [Model]
     func model(by primaryKey: PrimaryKeyType) -> Model?
     func object(_ conditions: [NSPredicate]?, sort usingDescriptors: [NSSortDescriptor]?) -> Model?
@@ -31,24 +29,15 @@ public protocol Storeable {
     func delete(_ ids: [PrimaryKeyType])
     func deletes(_ filter: NSPredicate)
     func count(_ conditions: [NSPredicate]?) -> Int
-    func from(object id: PrimaryKeyType) -> Observable<Model>
 }
 
 extension Storeable {
-    func all(sorted sortDescription: [NSSortDescriptor]) -> Observable<[Model]> {
-        return query(nil, sort: sortDescription)
-    }
-
     func update(_ model: Model) {
         add(model, update: true)
     }
 
     func add(_ model: Model) {
         add(model, update: false)
-    }
-
-    func query(filter predicate: NSPredicate, sorted byDesc: [NSSortDescriptor]) -> Observable<[Model]> {
-        return query([predicate], sort: byDesc)
     }
 
     func object(by predicate: NSPredicate) -> Model? {
