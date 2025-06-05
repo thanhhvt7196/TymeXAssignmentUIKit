@@ -26,6 +26,6 @@ struct GithubUserStoreImpl<C: Storeable>: GithubUserStore where C.Model == GitHu
     }
     
     func add(users: [GitHubUser]) {
-        collection.add([], update: .addNew)
+        collection.add(users, update: .addNew)
     }
 }

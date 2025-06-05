@@ -8,12 +8,46 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import SkeletonView
 import UIScrollView_InfiniteScroll
+import SnapKit
 
 class UserListVC: Controller<UserListViewModel> {
     @IBOutlet private var tableView: UITableView!
     
     private let refreshControl = UIRefreshControl()
+    
+    private lazy var skeletonView: UIView = {
+        let containerView = UIView()
+        
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        
+        for i in 0...2 {
+            let itemView = UIView()
+            itemView.isSkeletonable = true
+            itemView.layer.cornerRadius = 12
+            itemView.clipsToBounds = true
+            stackView.addArrangedSubview(itemView)
+            itemView.snp.makeConstraints { make in
+                make.width.equalToSuperview()
+                make.height.equalTo(160)
+            }
+            itemView.showAnimatedGradientSkeleton()
+        }
+        
+        stackView.addArrangedSubview(UIView())
+        
+        containerView.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.leading.equalToSuperview().inset(16)
+        }
+        return containerView
+    }()
     
     override func setup() {
         super.setup()
@@ -39,6 +73,8 @@ class UserListVC: Controller<UserListViewModel> {
             self?.vm.inputs.rx.loadMoreTrigger.onNext(())
             tableView.finishInfiniteScroll()
         }
+        tableView.isSkeletonable = true
+        tableView.backgroundView = skeletonView
     }
     
     override func updateConstraints() {
@@ -73,8 +109,10 @@ class UserListVC: Controller<UserListViewModel> {
             .bind(to: vm.inputs.rx.selectedUserAction)
             .disposed(by: disposeBag)
         
-        vm.outputs.rx.userList
+        let userList = vm.outputs.rx.userList
             .distinctUntilChanged()
+        
+        userList
             .drive(tableView.rx.items) { tableView, row, user in
                 let indexPath = IndexPath(row: row, section: 0)
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: UserListItemCell.cellIdentifier, for: indexPath) as? UserListItemCell else {
@@ -91,6 +129,13 @@ class UserListVC: Controller<UserListViewModel> {
                     .disposed(by: cell.disposeBag)
                 return cell
             }
+            .disposed(by: disposeBag)
+        
+        Driver.combineLatest(userList, vm.outputs.rx.isLoading)
+            .drive(with: self, onNext: { vc, args in
+                let (userList, isLoading) = args
+                vc.skeletonView.isHidden = !(isLoading && userList.isEmpty)
+            })
             .disposed(by: disposeBag)
     }
 }

@@ -62,13 +62,3 @@ extension ViewModel: OutputCompatible {
 extension OutputCompatible {
     var outputs: Outputs<Self> { return Outputs(self) }
 }
-
-extension Reactive where Base: Outputs<ViewModel> {
-    var isLoading: Driver<Bool> {
-        return base.vm.isLoading.asDriver()
-    }
-    
-    var errorMessage: Signal<String> {
-        return base.vm.errorMessage.asSignal()
-    }
-}

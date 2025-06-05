@@ -9,27 +9,28 @@ import RealmSwift
 import Foundation
 
 final class GithubUserRealm: Object {
-   @Persisted var login: String?
-   @Persisted var id: Int
-   @Persisted var nodeId: String?
-   @Persisted var avatarUrl: String?
-   @Persisted var gravatarId: String?
-   @Persisted var url: String?
-   @Persisted var htmlUrl: String?
-   @Persisted var followersUrl: String?
-   @Persisted var followingUrl: String?
-   @Persisted var gistsUrl: String?
-   @Persisted var starredUrl: String?
-   @Persisted var subscriptionsUrl: String?
-   @Persisted var organizationsUrl: String?
-   @Persisted var reposUrl: String?
-   @Persisted var eventsUrl: String?
-   @Persisted var receivedEventsUrl: String?
-   @Persisted var type: String?
-   @Persisted var userViewType: String?
-   @Persisted var siteAdmin: Bool?
+    @Persisted var login: String?
+    @Persisted var id: Int
+    @Persisted var nodeId: String?
+    @Persisted var avatarUrl: String?
+    @Persisted var gravatarId: String?
+    @Persisted var url: String?
+    @Persisted var htmlUrl: String?
+    @Persisted var followersUrl: String?
+    @Persisted var followingUrl: String?
+    @Persisted var gistsUrl: String?
+    @Persisted var starredUrl: String?
+    @Persisted var subscriptionsUrl: String?
+    @Persisted var organizationsUrl: String?
+    @Persisted var reposUrl: String?
+    @Persisted var eventsUrl: String?
+    @Persisted var receivedEventsUrl: String?
+    @Persisted var type: String?
+    @Persisted var userViewType: String?
+    @Persisted var siteAdmin: Bool?
     
-    init(login: String?, id: Int, nodeId: String? = nil, avatarUrl: String? = nil, gravatarId: String? = nil, url: String? = nil, htmlUrl: String? = nil, followersUrl: String? = nil, followingUrl: String? = nil, gistsUrl: String? = nil, starredUrl: String? = nil, subscriptionsUrl: String? = nil, organizationsUrl: String? = nil, reposUrl: String? = nil, eventsUrl: String? = nil, receivedEventsUrl: String? = nil, type: String? = nil, userViewType: String? = nil, siteAdmin: Bool? = nil) {
+    convenience init(login: String?, id: Int, nodeId: String? = nil, avatarUrl: String? = nil, gravatarId: String? = nil, url: String? = nil, htmlUrl: String? = nil, followersUrl: String? = nil, followingUrl: String? = nil, gistsUrl: String? = nil, starredUrl: String? = nil, subscriptionsUrl: String? = nil, organizationsUrl: String? = nil, reposUrl: String? = nil, eventsUrl: String? = nil, receivedEventsUrl: String? = nil, type: String? = nil, userViewType: String? = nil, siteAdmin: Bool? = nil) {
+        self.init()
         self.login = login
         self.id = id
         self.nodeId = nodeId
@@ -48,7 +49,11 @@ final class GithubUserRealm: Object {
         self.receivedEventsUrl = receivedEventsUrl
         self.type = type
         self.userViewType = userViewType
-        self.siteAdmin = siteAdmin
+        self.siteAdmin = siteAdmin        
+    }
+    
+    override class func primaryKey() -> String? {
+        return "id"
     }
 }
 

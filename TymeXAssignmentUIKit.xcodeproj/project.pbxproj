@@ -12,6 +12,7 @@
 		0CDAC6152DF13CDE005A125A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDAC6142DF13CDE005A125A /* RxCocoa */; };
 		0CDAC6172DF13CDE005A125A /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDAC6162DF13CDE005A125A /* RxRelay */; };
 		0CDAC6192DF13CDE005A125A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDAC6182DF13CDE005A125A /* RxSwift */; };
+		0CDACD012DF21498005A125A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDACD002DF21498005A125A /* SkeletonView */; };
 		0CDC20492DF088E8007DA363 /* Pulse in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDC20482DF088E8007DA363 /* Pulse */; };
 		0CDC204B2DF088E8007DA363 /* PulseProxy in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDC204A2DF088E8007DA363 /* PulseProxy */; };
 		0CDC204D2DF088E8007DA363 /* PulseUI in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDC204C2DF088E8007DA363 /* PulseUI */; };
@@ -89,6 +90,7 @@
 				0CDC20492DF088E8007DA363 /* Pulse in Frameworks */,
 				0CDC204B2DF088E8007DA363 /* PulseProxy in Frameworks */,
 				0CFFD3FD2DEFE14300403B0D /* Kingfisher in Frameworks */,
+				0CDACD012DF21498005A125A /* SkeletonView in Frameworks */,
 				0CFFD4112DEFE36B00403B0D /* Moya in Frameworks */,
 				0CFFD4032DEFE1A300403B0D /* SnapKit in Frameworks */,
 				0CFFD3FA2DEFD27400403B0D /* RealmSwift in Frameworks */,
@@ -167,6 +169,7 @@
 				0CDAC6162DF13CDE005A125A /* RxRelay */,
 				0CDAC6182DF13CDE005A125A /* RxSwift */,
 				0C51C9BC2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll */,
+				0CDACD002DF21498005A125A /* SkeletonView */,
 			);
 			productName = TymeXAssignmentUIKit;
 			productReference = 0CFFD3A52DEFCEE700403B0D /* TymeXAssignmentUIKit.app */;
@@ -256,6 +259,7 @@
 				0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */,
 				0CDAC6132DF13CDE005A125A /* XCRemoteSwiftPackageReference "RxSwift" */,
 				0C51C9BB2DF20D8500E9B2F7 /* XCRemoteSwiftPackageReference "UIScrollView-InfiniteScroll" */,
+				0CDACCFF2DF21498005A125A /* XCRemoteSwiftPackageReference "SkeletonView" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0CFFD3A62DEFCEE700403B0D /* Products */;
@@ -645,6 +649,14 @@
 				version = 6.9.0;
 			};
 		};
+		0CDACCFF2DF21498005A125A /* XCRemoteSwiftPackageReference "SkeletonView" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Juanpe/SkeletonView.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.31.0;
+			};
+		};
 		0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kean/Pulse.git";
@@ -715,6 +727,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0CDAC6132DF13CDE005A125A /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		0CDACD002DF21498005A125A /* SkeletonView */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CDACCFF2DF21498005A125A /* XCRemoteSwiftPackageReference "SkeletonView" */;
+			productName = SkeletonView;
 		};
 		0CDC20482DF088E8007DA363 /* Pulse */ = {
 			isa = XCSwiftPackageProductDependency;
