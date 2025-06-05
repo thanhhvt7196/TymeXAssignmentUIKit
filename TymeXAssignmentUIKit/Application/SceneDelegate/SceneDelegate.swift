@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let rootVC = UserListVC(
             vm: .init(
                 userService: ServiceContainer.get(),
-                store: GithubUserStoreImpl(collection: RealmStore<GithubUserRealm>(config: AppDelegate.sharedRealmConfig))
+                store: StoreContainer.get()
             )
         )
         
