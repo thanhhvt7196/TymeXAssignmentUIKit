@@ -31,37 +31,3 @@ public protocol Storeable {
     func count(_ conditions: [NSPredicate]?) -> Int
 }
 
-extension Storeable {
-    func update(_ model: Model) {
-        add(model, update: true)
-    }
-
-    func add(_ model: Model) {
-        add(model, update: false)
-    }
-
-    func object(by predicate: NSPredicate) -> Model? {
-        return object([predicate], sort: nil)
-    }
-
-    func objects(by predicate: NSPredicate) -> [Model] {
-        return objects([predicate], sort: nil)
-    }
-
-    func update<S: Sequence>(_ objects: S) where S.Iterator.Element == Model {
-        add(objects, update: .update)
-    }
-
-    func count(with predicate: NSPredicate) -> Int {
-        return count([predicate])
-    }
-
-    func clean() {
-        add([], update: .cleanOnUpdate)
-    }
-
-    func count(with predicate: [NSPredicate]) -> Int {
-        return count(predicate)
-    }
-}
-

@@ -32,9 +32,9 @@ enum APIRouter: TargetType {
     
     var method: Moya.Method {
         switch self {
-        case .getGithubUsersList(let itemPerPage, let since):
+        case .getGithubUsersList:
             return .get
-        case .getUserDetails(let username):
+        case .getUserDetails:
             return .get
         }
     }
@@ -49,7 +49,7 @@ enum APIRouter: TargetType {
                 ],
                 encoding: URLEncoding.default
             )
-        case .getUserDetails(let username):
+        case .getUserDetails:
             return .requestPlain
         }
     }
