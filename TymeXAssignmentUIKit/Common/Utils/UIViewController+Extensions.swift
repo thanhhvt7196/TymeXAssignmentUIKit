@@ -8,9 +8,11 @@
 import UIKit
 
 extension UIViewController {
-    func showErrorAlert(title: String = L10n.errorAlertTitle, message: String?) {
+    func showErrorAlert(title: String = L10n.errorAlertTitle, message: String?, action: @escaping () -> Void = {}) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: L10n.okButton, style: .default))
+        alertController.addAction(UIAlertAction(title: L10n.okButton, style: .default) { _ in
+            action()
+        })
         
         if UIDevice.current.userInterfaceIdiom == .pad {
             alertController.popoverPresentationController?.sourceView = view
