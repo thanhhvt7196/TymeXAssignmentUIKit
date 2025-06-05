@@ -20,15 +20,6 @@ protocol OutputCompatible {
 }
 
 class ViewModel: NSObject {
-    enum LifeCycle {
-        case didAppear
-        case willAppear
-        case didLoad
-        case willDisappear
-        case didDisappear
-        case didLayoutSubviews
-    }
-    
     let lifeCycle = PublishRelay<LifeCycle>()
     let isLoading = BehaviorRelay<Bool>(value: false)
     let errorMessage = PublishRelay<String>()
@@ -70,4 +61,14 @@ extension ViewModel: OutputCompatible {
 
 extension OutputCompatible {
     var outputs: Outputs<Self> { return Outputs(self) }
+}
+
+extension Reactive where Base: Outputs<ViewModel> {
+    var isLoading: Driver<Bool> {
+        return base.vm.isLoading.asDriver()
+    }
+    
+    var errorMessage: Signal<String> {
+        return base.vm.errorMessage.asSignal()
+    }
 }

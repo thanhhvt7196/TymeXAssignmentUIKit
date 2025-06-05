@@ -16,6 +16,6 @@ struct UserServiceImpl: UserService {
     }
     
     func getUserList(page: Int, itemPerPage: Int) -> Single<[GitHubUser]> {
-        return apiClient.request(router: .getGithubUsersList(itemPerPage: itemPerPage, since: page), type: [GitHubUser].self)
+        return apiClient.request(router: .getGithubUsersList(itemPerPage: itemPerPage, since: page * itemPerPage), type: [GitHubUser].self)
     }
 }

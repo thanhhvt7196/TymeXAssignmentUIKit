@@ -8,6 +8,12 @@
 import RxSwift
 import RxCocoa
 
+extension ObservableType {
+    func mapToVoid() -> Observable<Void> {
+        return map { _ in }
+    }
+}
+
 extension PublishRelay {
     func asObserver() -> AnyObserver<Element> {
         return .init { [weak self] event in

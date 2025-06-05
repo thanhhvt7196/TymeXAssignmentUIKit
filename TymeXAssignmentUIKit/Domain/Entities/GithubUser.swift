@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct GitHubUser: Codable {
+// use Equatable for using RxSwift operator `distinctUntilChanged()`
+struct GitHubUser: Codable, Equatable {
     let login: String?
     let id: Int
     let nodeId: String?

@@ -1,5 +1,5 @@
 {
-  "originHash" : "fbfafe179a051aad93cd15eff8f4d2c7d0a9089f02a85f20f6ec185261d78906",
+  "originHash" : "fdaf249da5935a88e1ad79c79b79e0ccf6dca6b5ca02c1647b1cbdfb82cf0480",
   "pins" : [
     {
       "identity" : "alamofire",
@@ -89,6 +89,15 @@
       "state" : {
         "revision" : "be9dbcc7b86811bc131539a20c6f9c2d3e56919f",
         "version" : "2.9.1"
+      }
+    },
+    {
+      "identity" : "uiscrollview-infinitescroll",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pronebird/UIScrollView-InfiniteScroll.git",
+      "state" : {
+        "revision" : "ff0c2b0d0d83961f36df3dfb3e6ff6929ff46dd3",
+        "version" : "1.3.0"
       }
     }
   ],

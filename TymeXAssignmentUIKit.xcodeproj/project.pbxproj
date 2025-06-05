@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C51C9BD2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll in Frameworks */ = {isa = PBXBuildFile; productRef = 0C51C9BC2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll */; };
 		0C9FE9092DF093A700CA4CC0 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0C9FE9082DF093A700CA4CC0 /* swiftgen.yml */; };
 		0CDAC6152DF13CDE005A125A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDAC6142DF13CDE005A125A /* RxCocoa */; };
 		0CDAC6172DF13CDE005A125A /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDAC6162DF13CDE005A125A /* RxRelay */; };
@@ -84,6 +85,7 @@
 				0CDAC6172DF13CDE005A125A /* RxRelay in Frameworks */,
 				0CDAC6152DF13CDE005A125A /* RxCocoa in Frameworks */,
 				0CDC204D2DF088E8007DA363 /* PulseUI in Frameworks */,
+				0C51C9BD2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll in Frameworks */,
 				0CDC20492DF088E8007DA363 /* Pulse in Frameworks */,
 				0CDC204B2DF088E8007DA363 /* PulseProxy in Frameworks */,
 				0CFFD3FD2DEFE14300403B0D /* Kingfisher in Frameworks */,
@@ -164,6 +166,7 @@
 				0CDAC6142DF13CDE005A125A /* RxCocoa */,
 				0CDAC6162DF13CDE005A125A /* RxRelay */,
 				0CDAC6182DF13CDE005A125A /* RxSwift */,
+				0C51C9BC2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll */,
 			);
 			productName = TymeXAssignmentUIKit;
 			productReference = 0CFFD3A52DEFCEE700403B0D /* TymeXAssignmentUIKit.app */;
@@ -252,6 +255,7 @@
 				0CFFD40F2DEFE36B00403B0D /* XCRemoteSwiftPackageReference "Moya" */,
 				0CDC20472DF088E8007DA363 /* XCRemoteSwiftPackageReference "Pulse" */,
 				0CDAC6132DF13CDE005A125A /* XCRemoteSwiftPackageReference "RxSwift" */,
+				0C51C9BB2DF20D8500E9B2F7 /* XCRemoteSwiftPackageReference "UIScrollView-InfiniteScroll" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0CFFD3A62DEFCEE700403B0D /* Products */;
@@ -621,6 +625,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		0C51C9BB2DF20D8500E9B2F7 /* XCRemoteSwiftPackageReference "UIScrollView-InfiniteScroll" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pronebird/UIScrollView-InfiniteScroll.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.0;
+			};
+		};
 		0CDAC6132DF13CDE005A125A /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -680,6 +692,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		0C51C9BC2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0C51C9BB2DF20D8500E9B2F7 /* XCRemoteSwiftPackageReference "UIScrollView-InfiniteScroll" */;
+			productName = UIScrollView_InfiniteScroll;
+		};
 		0CDAC6142DF13CDE005A125A /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0CDAC6132DF13CDE005A125A /* XCRemoteSwiftPackageReference "RxSwift" */;

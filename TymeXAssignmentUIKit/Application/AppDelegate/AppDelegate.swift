@@ -25,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions    launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setupUI()
         setupPulse()
         return true
     }
@@ -45,6 +46,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func setupPulse() {
         NetworkLogger.enableProxy()
+    }
+    
+    private func setupUI() {
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = .white
+        
+        appearance.titleTextAttributes = [
+            .font: FontFamily.TTNormsPro.bold.font(size: 18),
+            .foregroundColor: UIColor.baseText
+        ]
+        
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+        UINavigationBar.appearance().compactAppearance = appearance
+        UINavigationBar.appearance().compactScrollEdgeAppearance = appearance
     }
 }
 
