@@ -50,7 +50,13 @@ class UserDetailVC: Controller<UserDetailViewModel> {
     }
     
     private func bindInputs() {
-        
+        blogView.rx.linkTap
+            .withLatestFrom(vm.outputs.rx.userDetail)
+            .compactMap { URL(string: $0?.htmlUrl ?? "") }
+            .subscribe(onNext: { url in
+                UIApplication.shared.open(url)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func bindOutputs() {
