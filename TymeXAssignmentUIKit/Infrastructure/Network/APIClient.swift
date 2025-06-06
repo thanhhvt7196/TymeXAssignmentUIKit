@@ -8,6 +8,7 @@
 import Foundation
 import Alamofire
 import Moya
+import RxSwift
 
 struct APISession {
     static let session: Session = {
@@ -19,13 +20,13 @@ struct APISession {
 }
 
 protocol APIClient {
-    func request<T: Codable>(router: APIRouter, type: T.Type) async throws -> T
+    func request<T: Codable>(router: APIRouter, type: T.Type) -> Single<T>
 }
 
 class APIClientImpl: APIClient {
-    func request<T>(router: APIRouter, type: T.Type) async throws -> T where T : Decodable, T : Encodable {
-        return try await withCheckedThrowingContinuation { continuation in
-            MoyaProvider<APIRouter>(session: APISession.session)
+    func request<T>(router: APIRouter, type: T.Type) -> Single<T> where T : Decodable, T : Encodable {
+        return Single.create { observer in
+            let request = MoyaProvider<APIRouter>(session: APISession.session)
                 .request(router, completion: { result in
                     switch result {
                     case .success(let response):
@@ -33,26 +34,30 @@ class APIClientImpl: APIClient {
                         if statusCode == HTTPStatusCodes.OK.rawValue || statusCode == HTTPStatusCodes.Created.rawValue {
                             do {
                                 let object = try JSONDecoder().decode(T.self, from: response.data)
-                                continuation.resume(returning: object)
+                                observer(.success(object))
                             } catch {
-                                continuation.resume(throwing: APIError(message: "Decode response error = \(error)"))
+                                observer(.failure(APIError(message: "Decode response error = \(error)")))
                             }
                         } else {
-                            continuation.resume(throwing: APIError(message: "Error status code = \(statusCode.string)"))
+                            observer(.failure(APIError(message: "Error status code = \(statusCode.string)")))
                         }
                     case .failure(let error):
                         if let data = error.response?.data {
                             do {
                                 let apiError = try JSONDecoder().decode(APIError.self, from: data)
-                                continuation.resume(throwing: apiError)
+                                observer(.failure(apiError))
                             } catch {
-                                continuation.resume(throwing: error)
+                                observer(.failure(error))
                             }
                         } else {
-                            continuation.resume(throwing: error)
+                            observer(.failure(error))
                         }
                     }
                 })
+            
+            return Disposables.create {
+                request.cancel()
+            }
         }
     }
 }

@@ -5,3 +5,114 @@
 //  Created by thanh tien on 4/6/25.
 //
 
+import Foundation
+import RxSwift
+import RxCocoa
+
+class UserListViewModel: ViewModel {
+    private let userService: UserService
+    private let store: GithubUserStore
+    
+    fileprivate let userList = BehaviorRelay<[GitHubUser]>(value: [])
+    fileprivate let selectedUserAction = PublishRelay<GitHubUser>()
+    fileprivate let loadMoreTrigger = PublishRelay<Void>()
+    fileprivate let refreshTrigger = PublishRelay<Void>()
+    
+    private var page = 0
+    private var itemPerPage = 20
+    
+    private var isLoadMore = false
+    
+    init(userService: UserService, store: GithubUserStore) {
+        self.userService = userService
+        self.store = store
+        super.init()
+        setupBinding()
+        let cachedData = store.getAllUsers()
+        userList.accept(cachedData)
+    }
+    
+    private func setupBinding() {
+        refreshTrigger
+            .withUnretained(self)
+            .flatMapLatest { vm, _ in
+                vm.isLoading.accept(true)
+                vm.page = 0
+                return vm.userService.getUserList(page: vm.page, itemPerPage: vm.itemPerPage)
+                    .asObservable()
+                    .materialize()
+            }
+            .subscribe(with: self, onNext: { vm, event in
+                vm.isLoading.accept(false)
+                
+                switch event {
+                case .next(let userList):
+                    vm.userList.accept(userList)
+                    vm.page += 1
+                    vm.store.clean()
+                    vm.store.add(users: userList)
+                case .error(let error):
+                    let errorMessage = (error as? APIError)?.message ?? error.localizedDescription
+                    vm.errorMessage.accept(errorMessage)
+                case .completed:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        loadMoreTrigger
+            .withUnretained(self)
+            .filter { vm, _ in
+                return !vm.isLoadMore && vm.page > 0
+            }
+            .flatMapLatest { vm, _ in
+                vm.isLoadMore = true
+                return vm.userService.getUserList(page: vm.page, itemPerPage: vm.itemPerPage)
+                    .catchAndReturn([])
+            }
+            .subscribe(with: self, onNext: { vm, userList in
+                guard !userList.isEmpty else {
+                    return
+                }
+                // github API return some duplicated users, so we need to check if they already existed
+                var newUserList = vm.userList.value
+                userList.forEach { user in
+                    if !newUserList.map({ $0.id }).contains(user.id) {
+                        newUserList.append(user)
+                    }
+                    vm.userList.accept(newUserList)
+                }
+                vm.isLoadMore = false
+                vm.page += 1
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension Reactive where Base: Inputs<UserListViewModel> {
+    var selectedUserAction: AnyObserver<GitHubUser> {
+        return base.vm.selectedUserAction.asObserver()
+    }
+    
+    var refreshTrigger: AnyObserver<Void> {
+        return base.vm.refreshTrigger.asObserver()
+    }
+    
+    var loadMoreTrigger: AnyObserver<Void> {
+        return base.vm.loadMoreTrigger.asObserver()
+    }
+}
+
+extension Reactive where Base: Outputs<UserListViewModel> {
+    var userList: Driver<[GitHubUser]> {
+        return base.vm.userList.asDriver()
+    }
+    
+    var isLoading: Driver<Bool> {
+        return base.vm.isLoading.asDriver()
+    }
+    
+    var errorMessage: Signal<String> {
+        return base.vm.errorMessage.asSignal()
+    }
+}
