@@ -12,6 +12,7 @@ import RxCocoa
 class UserListViewModel: ViewModel {
     private let userService: UserService
     private let store: GithubUserStore
+    private let navigator: UserListNavigator
     
     fileprivate let userList = BehaviorRelay<[GitHubUser]>(value: [])
     fileprivate let selectedUserAction = PublishRelay<GitHubUser>()
@@ -23,9 +24,10 @@ class UserListViewModel: ViewModel {
     
     private var isLoadMore = false
     
-    init(userService: UserService, store: GithubUserStore) {
+    init(userService: UserService, store: GithubUserStore, navigator: UserListNavigator) {
         self.userService = userService
         self.store = store
+        self.navigator = navigator
         super.init()
         setupBinding()
         let cachedData = store.getAllUsers()
@@ -84,6 +86,14 @@ class UserListViewModel: ViewModel {
                 }
                 vm.isLoadMore = false
                 vm.page += 1
+            })
+            .disposed(by: disposeBag)
+        
+        selectedUserAction
+            .compactMap { $0.login }
+            .observe(on: MainScheduler.instance)
+            .subscribe(with: self, onNext: { vm, username in
+                vm.navigator.showUserDetail(username: username)
             })
             .disposed(by: disposeBag)
     }

@@ -99,10 +99,7 @@ class UserListVC: Controller<UserListViewModel> {
             .disposed(by: disposeBag)
         
         tableView.rx.modelSelected(GitHubUser.self)
-            .subscribe(with: self, onNext: { vc, user in
-                let userDetailVC = UserDetailVC(vm: .init(userService: ServiceContainer.get(), username: user.login ?? ""))
-                vc.navigationController?.pushViewController(userDetailVC, animated: true)
-            })
+            .bind(to: vm.inputs.rx.selectedUserAction)
             .disposed(by: disposeBag)
     }
     

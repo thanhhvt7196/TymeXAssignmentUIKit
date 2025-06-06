@@ -11,11 +11,13 @@ import RxCocoa
 class UserDetailViewModel: ViewModel {
     private let userService: UserService
     fileprivate let userDetail = BehaviorRelay<GithubUserDetail?>(value: nil)
+    private let navigator: UserDetailNavigator
     
     private let username: String
     
-    init(userService: UserService, username: String) {
+    init(userService: UserService, navigator: UserDetailNavigator, username: String) {
         self.userService = userService
+        self.navigator = navigator
         self.username = username
         super.init()
         setupBinding()
