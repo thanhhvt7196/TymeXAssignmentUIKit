@@ -60,7 +60,8 @@ class UserListItemCell: UITableViewCell {
         if let htmlUrl = user.htmlUrl {
             let attributes: [NSAttributedString.Key: Any] = [
                 .foregroundColor: UIColor.link,
-                .underlineStyle: NSUnderlineStyle.single.rawValue
+                .underlineStyle: NSUnderlineStyle.single.rawValue,
+                .font: FontFamily.TTNormsPro.medium.font(size: 16)
             ]
             let attributedLink = NSAttributedString(string: htmlUrl, attributes: attributes)
             linkButton.setAttributedTitle(attributedLink, for: .normal)

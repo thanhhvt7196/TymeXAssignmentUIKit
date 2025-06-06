@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserDetailVC" customModule="TymeXAssignmentUIKit" customModuleProvider="target">
+            <connections>
+                <outlet property="blogView" destination="gKl-QD-41P" id="zmY-7v-tbu"/>
+                <outlet property="detailCardView" destination="dfB-Nj-ZQX" id="yOS-fb-YPM"/>
+                <outlet property="followerView" destination="jm5-mR-frz" id="jeU-bK-tgb"/>
+                <outlet property="followingView" destination="SIv-0B-9hF" id="TXv-jX-QWJ"/>
+                <outlet property="scrollView" destination="pdH-2U-6Mh" id="J7P-DE-O3O"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pdH-2U-6Mh">
+                    <rect key="frame" x="0.0" y="118" width="393" height="734"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Ex-Lj-NJA">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="276"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E4c-1O-Dq1">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="0.0"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" id="9bG-Fl-R57"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dfB-Nj-ZQX" customClass="UserDetailCardView" customModule="TymeXAssignmentUIKit" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" priority="1" id="T4G-ep-add"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="puI-v7-zBd">
+                                    <rect key="frame" x="0.0" y="50" width="393" height="24"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="OKr-gt-0ED"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KJJ-h6-SUk">
+                                    <rect key="frame" x="0.0" y="74" width="393" height="128"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="12d-WO-uN1">
+                                            <rect key="frame" x="71.666666666666686" y="0.0" width="250" height="128"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jm5-mR-frz" customClass="UserDetailFollowView" customModule="TymeXAssignmentUIKit" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="128"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="LXv-Ih-jLD"/>
+                                                    </constraints>
+                                                </view>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SIv-0B-9hF" customClass="UserDetailFollowView" customModule="TymeXAssignmentUIKit" customModuleProvider="target">
+                                                    <rect key="frame" x="150" y="0.0" width="100" height="128"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
+                                            </subviews>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="12d-WO-uN1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="KJJ-h6-SUk" secondAttribute="leading" constant="10" id="VPu-fs-zJU"/>
+                                        <constraint firstItem="12d-WO-uN1" firstAttribute="top" secondItem="KJJ-h6-SUk" secondAttribute="top" id="XV6-e9-WdS"/>
+                                        <constraint firstAttribute="bottom" secondItem="12d-WO-uN1" secondAttribute="bottom" id="dHR-gk-XHD"/>
+                                        <constraint firstItem="12d-WO-uN1" firstAttribute="centerX" secondItem="KJJ-h6-SUk" secondAttribute="centerX" id="jBU-Pq-aGl"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Dl-W5-WfG">
+                                    <rect key="frame" x="0.0" y="202" width="393" height="24"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="24" id="jpY-Ef-b9f"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gKl-QD-41P" customClass="UserDetailBlogView" customModule="TymeXAssignmentUIKit" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="226" width="393" height="50"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" priority="1" id="bIw-oP-URs"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="5Ex-Lj-NJA" firstAttribute="top" secondItem="pdH-2U-6Mh" secondAttribute="top" id="7VG-i0-2GM"/>
+                        <constraint firstAttribute="trailing" secondItem="5Ex-Lj-NJA" secondAttribute="trailing" id="7fA-m2-n35"/>
+                        <constraint firstItem="E4c-1O-Dq1" firstAttribute="width" secondItem="pdH-2U-6Mh" secondAttribute="width" id="8mR-c4-ndh"/>
+                        <constraint firstItem="5Ex-Lj-NJA" firstAttribute="leading" secondItem="pdH-2U-6Mh" secondAttribute="leading" id="Obu-54-soJ"/>
+                        <constraint firstAttribute="bottom" secondItem="5Ex-Lj-NJA" secondAttribute="bottom" id="iMz-aZ-HMo"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pdH-2U-6Mh" secondAttribute="trailing" id="1GI-qh-SCO"/>
+                <constraint firstItem="pdH-2U-6Mh" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="KJd-ai-S18"/>
+                <constraint firstAttribute="bottom" secondItem="pdH-2U-6Mh" secondAttribute="bottom" id="NNN-IB-YtC"/>
+                <constraint firstItem="pdH-2U-6Mh" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="ZJH-CO-mAd"/>
+            </constraints>
+            <point key="canvasLocation" x="118" y="-12"/>
+        </view>
+    </objects>
+</document>

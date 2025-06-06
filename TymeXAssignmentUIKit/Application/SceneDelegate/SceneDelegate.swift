@@ -19,14 +19,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         let window = UIWindow(windowScene: windowScene)
+        let navigationController = UINavigationController()
         let rootVC = UserListVC(
             vm: .init(
                 userService: ServiceContainer.get(),
-                store: StoreContainer.get()
+                store: StoreContainer.get(),
+                navigator: UserListNavigatorImpl(navigationController: navigationController)
             )
         )
+        navigationController.pushViewController(rootVC, animated: true)
         
-        window.rootViewController = UINavigationController(rootViewController: rootVC)
+        window.rootViewController = navigationController
         window.overrideUserInterfaceStyle = .light
         self.window = window
         window.makeKeyAndVisible()

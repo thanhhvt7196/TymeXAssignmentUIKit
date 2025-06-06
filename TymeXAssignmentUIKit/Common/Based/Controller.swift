@@ -29,7 +29,7 @@ class Controller<VM: ViewModel>: UIViewController {
 
         let backImage = UIImageView(image: UIImage(systemName: "chevron.left")?.withRenderingMode(.alwaysTemplate))
         backImage.contentMode = .scaleAspectFit
-        backImage.tintColor = .white
+        backImage.tintColor = .baseText
         backImage.translatesAutoresizingMaskIntoConstraints = false
         containerView.addSubview(backImage)
         
