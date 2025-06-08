@@ -12,6 +12,8 @@
 		0C36163A2DF61B42006E1E4C /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = 0C3616392DF61B42006E1E4C /* RxRelay */; };
 		0C36163C2DF61B42006E1E4C /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0C36163B2DF61B42006E1E4C /* RxSwift */; };
 		0C36163E2DF61B42006E1E4C /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = 0C36163D2DF61B42006E1E4C /* RxTest */; };
+		0C3616542DF61F6E006E1E4C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0C3616532DF61F6E006E1E4C /* RealmSwift */; };
+		0C3616552DF61F6E006E1E4C /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0C3616532DF61F6E006E1E4C /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0C51C9BD2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll in Frameworks */ = {isa = PBXBuildFile; productRef = 0C51C9BC2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll */; };
 		0C9FE9092DF093A700CA4CC0 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0C9FE9082DF093A700CA4CC0 /* swiftgen.yml */; };
 		0CDACD012DF21498005A125A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDACD002DF21498005A125A /* SkeletonView */; };
@@ -41,6 +43,20 @@
 			remoteInfo = TymeXAssignmentUIKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0C3616562DF61F6E006E1E4C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0C3616552DF61F6E006E1E4C /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0C9FE9082DF093A700CA4CC0 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
@@ -105,6 +121,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C3616542DF61F6E006E1E4C /* RealmSwift in Frameworks */,
 				0C36163E2DF61B42006E1E4C /* RxTest in Frameworks */,
 				0C3616362DF61B42006E1E4C /* RxBlocking in Frameworks */,
 			);
@@ -120,6 +137,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C3616522DF61F6E006E1E4C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0CFFD39C2DEFCEE700403B0D = {
 			isa = PBXGroup;
 			children = (
@@ -127,6 +151,7 @@
 				0CFFD3A72DEFCEE700403B0D /* TymeXAssignmentUIKit */,
 				0CFFD3BE2DEFCEE900403B0D /* TymeXAssignmentUIKitTests */,
 				0CFFD3C82DEFCEE900403B0D /* TymeXAssignmentUIKitUITests */,
+				0C3616522DF61F6E006E1E4C /* Frameworks */,
 				0CFFD3A62DEFCEE700403B0D /* Products */,
 			);
 			sourceTree = "<group>";
@@ -186,6 +211,7 @@
 				0CFFD3B72DEFCEE900403B0D /* Sources */,
 				0CFFD3B82DEFCEE900403B0D /* Frameworks */,
 				0CFFD3B92DEFCEE900403B0D /* Resources */,
+				0C3616562DF61F6E006E1E4C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -736,6 +762,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0C3616342DF61B42006E1E4C /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxTest;
+		};
+		0C3616532DF61F6E006E1E4C /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0CFFD3F82DEFD27400403B0D /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 		0C51C9BC2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll */ = {
 			isa = XCSwiftPackageProductDependency;
