@@ -8,13 +8,13 @@
 import RxSwift
 
 struct UserDetailUsecaseImpl: UserDetailUseCase {
-    private let useCase: UserDetailUseCase
+    private let service: UserService
     
-    init(useCase: UserDetailUseCase) {
-        self.useCase = useCase
+    init(service: UserService) {
+        self.service = service
     }
     
     func fetchUserDetail(username: String) -> Single<GithubUserDetail> {
-        return useCase.fetchUserDetail(username: username)
+        return service.getUserDetail(username: username)
     }
 }
