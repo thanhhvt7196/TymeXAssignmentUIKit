@@ -17,7 +17,10 @@ struct ServiceContainer: DIContainer {
         .inObjectScope(.transient)
         
         container.register(UserService.self) { _ in
-            UserServiceImpl(apiClient: container.resolve(APIClient.self)!)
+            guard let apiClient = container.resolve(APIClient.self) else {
+                fatalError("Failed to resolve APIClient")
+            }
+            return UserServiceImpl(apiClient: apiClient)
         }
         .inObjectScope(.transient)
         

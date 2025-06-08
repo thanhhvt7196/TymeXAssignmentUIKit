@@ -9,16 +9,22 @@ import Swinject
 import RealmSwift
 
 struct StoreContainer: DIContainer {
+    private static let sharedRealmConfig: Realm.Configuration = {
+        var config = Realm.Configuration.defaultConfiguration
+        config.schemaVersion = 1
+        config.deleteRealmIfMigrationNeeded = false
+        if let url = config.fileURL {
+            let fileUrl = url.deletingLastPathComponent().appendingPathComponent("github_user.realm")
+            config.fileURL = fileUrl
+        }
+        return config
+    }()
+    
     static var container: Container {
         let container = Container()
         
-        container.register(Realm.Configuration.self) { _ in
-            AppDelegate.sharedRealmConfig
-        }
-        .inObjectScope(.container)
-        
-        container.register(GithubUserStore.self) { _ in
-            GithubUserStoreImpl(collection: RealmStore<GithubUserRealm>(config: container.resolve(Realm.Configuration.self)!))
+        container.register(UserStore.self) { _ in
+            UserStoreImpl(collection: RealmStore<GithubUserRealm>(config: sharedRealmConfig))
         }
         .inObjectScope(.transient)
         

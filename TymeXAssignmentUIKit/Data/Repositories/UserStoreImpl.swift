@@ -1,5 +1,5 @@
 //
-//  GithubUserStoreImpl.swift
+//  UserStoreImpl.swift
 //  TymeXAssignmentUIKit
 //
 //  Created by thanh tien on 4/6/25.
@@ -8,7 +8,7 @@
 import RealmSwift
 import Foundation
 
-struct GithubUserStoreImpl<C: Storeable>: GithubUserStore where C.Model == GitHubUser {
+struct UserStoreImpl<C: Storeable>: UserStore where C.Model == GitHubUser {
     private let collection: C
     
     init(collection: C) {

@@ -10,8 +10,7 @@ import RxSwift
 import RxCocoa
 
 class UserListViewModel: ViewModel {
-    private let userService: UserService
-    private let store: GithubUserStore
+    private let useCase: UserListUsecase
     private let navigator: UserListNavigator
     
     fileprivate let userList = BehaviorRelay<[GitHubUser]>(value: [])
@@ -24,13 +23,12 @@ class UserListViewModel: ViewModel {
     
     private var isLoadMore = false
     
-    init(userService: UserService, store: GithubUserStore, navigator: UserListNavigator) {
-        self.userService = userService
-        self.store = store
+    init(useCase: UserListUsecase, navigator: UserListNavigator) {
+        self.useCase = useCase
         self.navigator = navigator
         super.init()
         setupBinding()
-        let cachedData = store.getAllUsers()
+        let cachedData = useCase.getAllUsersFromCache()
         userList.accept(cachedData)
     }
     
@@ -40,7 +38,7 @@ class UserListViewModel: ViewModel {
             .flatMapLatest { vm, _ in
                 vm.isLoading.accept(true)
                 vm.page = 0
-                return vm.userService.getUserList(page: vm.page, itemPerPage: vm.itemPerPage)
+                return vm.useCase.fetchUsers(perPage: vm.itemPerPage, since: vm.page)
                     .asObservable()
                     .materialize()
             }
@@ -51,8 +49,8 @@ class UserListViewModel: ViewModel {
                 case .next(let userList):
                     vm.userList.accept(userList)
                     vm.page += 1
-                    vm.store.clean()
-                    vm.store.add(users: userList)
+                    vm.useCase.cleanCache()
+                    vm.useCase.saveCache(users: userList)
                 case .error(let error):
                     let errorMessage = (error as? APIError)?.message ?? error.localizedDescription
                     vm.errorMessage.accept(errorMessage)
@@ -69,7 +67,7 @@ class UserListViewModel: ViewModel {
             }
             .flatMapLatest { vm, _ in
                 vm.isLoadMore = true
-                return vm.userService.getUserList(page: vm.page, itemPerPage: vm.itemPerPage)
+                return vm.useCase.fetchUsers(perPage: vm.itemPerPage, since: vm.page)
                     .catchAndReturn([])
             }
             .subscribe(with: self, onNext: { vm, userList in

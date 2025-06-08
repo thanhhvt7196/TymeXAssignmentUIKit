@@ -1,11 +1,11 @@
 //
-//  GithubUserStore.swift
+//  UserStore.swift
 //  TymeXAssignmentUIKit
 //
 //  Created by thanh tien on 4/6/25.
 //
 
-protocol GithubUserStore {
+protocol UserStore {
     func getAllUsers() -> [GitHubUser]
     func clean()
     func add(users: [GitHubUser])

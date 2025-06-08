@@ -12,17 +12,6 @@ import RealmSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    static let sharedRealmConfig: Realm.Configuration = {
-        var config = Realm.Configuration.defaultConfiguration
-        config.schemaVersion = 1
-        config.deleteRealmIfMigrationNeeded = false
-        if let url = config.fileURL {
-            let fileUrl = url.deletingLastPathComponent().appendingPathComponent("github_user.realm")
-            config.fileURL = fileUrl
-        }
-        return config
-    }()
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions    launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         setupUI()

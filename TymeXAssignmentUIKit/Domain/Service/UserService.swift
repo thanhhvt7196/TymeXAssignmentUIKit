@@ -2,10 +2,9 @@
 //  UserService.swift
 //  TymeXAssignmentUIKit
 //
-//  Created by thanh tien on 4/6/25.
+//  Created by thanh tien on 9/6/25.
 //
 
-import Foundation
 import RxSwift
 
 protocol UserService {
