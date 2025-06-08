@@ -18,6 +18,7 @@
 		0C3618482DF636B3006E1E4C /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 0C3618462DF636B3006E1E4C /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		0C36184B2DF636CE006E1E4C /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0C36184A2DF636CE006E1E4C /* RxCocoa */; };
 		0C36184D2DF636DE006E1E4C /* UIScrollView_InfiniteScroll in Frameworks */ = {isa = PBXBuildFile; productRef = 0C36184C2DF636DE006E1E4C /* UIScrollView_InfiniteScroll */; };
+		0C3619252DF63A7E006E1E4C /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 0C3619242DF63A7E006E1E4C /* README.md */; };
 		0C51C9BD2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll in Frameworks */ = {isa = PBXBuildFile; productRef = 0C51C9BC2DF20D8500E9B2F7 /* UIScrollView_InfiniteScroll */; };
 		0C9FE9092DF093A700CA4CC0 /* swiftgen.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0C9FE9082DF093A700CA4CC0 /* swiftgen.yml */; };
 		0CDACD012DF21498005A125A /* SkeletonView in Frameworks */ = {isa = PBXBuildFile; productRef = 0CDACD002DF21498005A125A /* SkeletonView */; };
@@ -74,6 +75,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C3619242DF63A7E006E1E4C /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		0C9FE9082DF093A700CA4CC0 /* swiftgen.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = swiftgen.yml; sourceTree = "<group>"; };
 		0CFFD3A52DEFCEE700403B0D /* TymeXAssignmentUIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TymeXAssignmentUIKit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CFFD3BB2DEFCEE900403B0D /* TymeXAssignmentUIKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TymeXAssignmentUIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -165,6 +167,7 @@
 		0CFFD39C2DEFCEE700403B0D = {
 			isa = PBXGroup;
 			children = (
+				0C3619242DF63A7E006E1E4C /* README.md */,
 				0C9FE9082DF093A700CA4CC0 /* swiftgen.yml */,
 				0CFFD3A72DEFCEE700403B0D /* TymeXAssignmentUIKit */,
 				0CFFD3BE2DEFCEE900403B0D /* TymeXAssignmentUIKitTests */,
@@ -327,6 +330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C3619252DF63A7E006E1E4C /* README.md in Resources */,
 				0C9FE9092DF093A700CA4CC0 /* swiftgen.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
