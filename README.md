@@ -2,12 +2,6 @@
 
 ## 1. Language & Framework
 
-- **Language:** [Swift](https://developer.apple.com/swift/)
-- **UI Framework:** [UIKit](https://developer.apple.com/documentation/uikit)
-- **Architecture:** MVVM + Coordinators, reactive by [RxSwift](https://github.com/ReactiveX/RxSwift)
-- **Xcode:** Currently using Xcode 16.x, Swift 5+
-- **Code Generation:** [SwiftGen](https://github.com/SwiftGen/SwiftGen) for assets and localizations
-
 ### 1.1 Swift
 
 We use **[Swift](https://developer.apple.com/swift/)** and **[Xcode 16.4](https://developer.apple.com/xcode/)** as our primary development environment, leveraging modern Apple frameworks and technologies for building robust iOS applications.
