@@ -12,6 +12,7 @@ class UserDetailViewModel: ViewModel {
     private let userService: UserService
     fileprivate let userDetail = BehaviorRelay<GithubUserDetail?>(value: nil)
     private let navigator: UserDetailNavigator
+    fileprivate let popAction = PublishRelay<Void>()
     
     private let username: String
     
@@ -48,6 +49,12 @@ class UserDetailViewModel: ViewModel {
                 }
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension Reactive where Base: Inputs<UserDetailViewModel> {
+    var popAction: AnyObserver<Void> {
+        return base.vm.popAction.asObserver()
     }
 }
 

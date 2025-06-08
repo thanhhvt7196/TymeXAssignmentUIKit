@@ -72,7 +72,7 @@ class UserDetailVC: Controller<UserDetailViewModel> {
         vm.outputs.rx.errorMessage
             .emit(with: self, onNext: { vc, errorMessage in
                 vc.showErrorAlert(message: errorMessage) {
-                    vc.navigationController?.popViewController(animated: true)
+                    vc.vm.inputs.rx.popAction.onNext(())
                 }
             })
             .disposed(by: disposeBag)
