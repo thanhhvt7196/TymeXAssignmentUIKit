@@ -55,7 +55,7 @@ final class UserListUseCaseTests: XCTestCase {
         XCTAssertEqual(users.first?.login, mockUsers.first?.login)
     }
     
-    func testFetchUsers_WhenAPIFails_ShouldThrowError() async {
+    func testFetchUsers_WhenAPIFails_ShouldThrowError() {
         let error = APIError(message: "User list API error")
         mockAPIClient.mockResult = .failure(error)
         
@@ -67,7 +67,7 @@ final class UserListUseCaseTests: XCTestCase {
         }
     }
     
-    func testFetchUsers_ShouldUseCorrectRouter() async throws {
+    func testFetchUsers_ShouldUseCorrectRouter() {
         mockAPIClient.mockResult = .success(GitHubUserDTO.mockList())
         
         _ = try? useCase.fetchUsers(perPage: 20, since: 0).toBlocking().single()
