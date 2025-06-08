@@ -46,6 +46,7 @@ class Controller<VM: ViewModel>: UIViewController {
             make.edges.equalToSuperview()
         }
         defaultBackButton.addTarget(self, action: #selector(pop), for: .touchUpInside)
+        defaultBackButton.accessibilityIdentifier = "backButton"
         
         let customBackButton = UIBarButtonItem(customView: containerView)
         return customBackButton

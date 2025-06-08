@@ -75,6 +75,7 @@ class UserListVC: Controller<UserListViewModel> {
         }
         tableView.isSkeletonable = true
         tableView.backgroundView = skeletonView
+        tableView.accessibilityIdentifier = "userList"
     }
     
     override func updateConstraints() {
