@@ -46,7 +46,7 @@ All business logic and data dependencies should be injected. Use [Swinject](http
 ## 3. Project Structure
 
 ```
-TymeXAssignmentUIKit/
+GithubUserUIKit/
 ├── Application/         # AppDelegate, app entry, dependency setup
 ├── Presentation/        # UI Layer: Scenes (screens), Components (reusable UI)
 │   ├── Scenes/
@@ -95,3 +95,4 @@ The project uses the following libraries:
 ### Development Tools
 - **[SwiftGen](https://github.com/SwiftGen/SwiftGen)**: A tool that auto-generates Swift code for resources (images, strings, fonts, etc.)
 - **[Pulse](https://github.com/kean/Pulse)**: Network and console logging inspector for iOS apps. Access by shaking device or using Cmd + Ctrl + Z in Simulator
+# GithubUserUIKit
